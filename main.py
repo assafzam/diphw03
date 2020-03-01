@@ -1,9 +1,9 @@
-import os
 import sys
-
 import cv2
 from math import sqrt
 from os import path
+
+
 def calc_distance(p1, p2):
     (x1, y1) = p1
     (x2, y2) = p2
@@ -43,7 +43,7 @@ if __name__ == '__main__':
     Right = cv2.imread("img_R.JPG", cv2.IMREAD_COLOR)
 
     rows, cols = Left.shape[:2]
-    if cols > 1024: #resizing image
+    if cols > 1024:  # resizing image
         scale_percent = 100 * 1024 / cols  # percent of original size
         width = int(Left.shape[1] * scale_percent / 100)
         height = int(Right.shape[0] * scale_percent / 100)
@@ -91,5 +91,3 @@ if __name__ == '__main__':
     matched_image = cv2.drawMatches(Left, kp1, Right, kp2, matches, None, flags=2)
     cv2.imshow("Maximum Cover Matching", matched_image)
     cv2.waitKey(0)
-
-
